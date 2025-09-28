@@ -4,7 +4,8 @@ set -eu
 
 storage_dir="$1"          # e.g., /data
 csv_dir="$2"              # e.g., /data/LibriMix/metadata/csv
-n_src="${3:-2}"           # 2 or 3
+#n_src="${3:-2}"
+n_src=2# 2 or 3
 python_path="${PYTHON:-python}"
 
 librispeech_dir="$storage_dir/LibriSpeech"
@@ -31,6 +32,7 @@ $python_path scripts/create_librimix_from_csv.py \
   --csv_dir "$csv_dir" \
   --librimix_outdir "$storage_dir" \
   --n_src "$n_src" \
-  --freqs 8k 16k \
-  --modes min max \
+  --freqs 16k \
+  --modes min \
   --types mix_clean
+
